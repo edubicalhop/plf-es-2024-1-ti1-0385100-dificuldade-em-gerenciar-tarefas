@@ -4,7 +4,7 @@ Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 
 ## Alunos integrantes da equipe
 
-*Henrique Gouvêa De La Camp
+* Henrique Gouvêa De La Camp
  * Arthur Drumond Barbosa Soares
  * Arthur Angonesi Mendes
  * Igor Henrique Oliveira Silva
