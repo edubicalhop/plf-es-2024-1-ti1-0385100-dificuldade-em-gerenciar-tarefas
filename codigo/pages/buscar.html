@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Busca de Tarefas</title>
+    <style>
+        #tarefa {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Busca de Tarefas</h1>
+    <input type="text" id="tarefa" placeholder="Insira uma tarefa">
+    <button onclick="adicionarTarefa()">Adicionar Tarefa</button>
+    <input type="text" id="busca" placeholder="Buscar tarefa">
+    <button onclick="buscarTarefa()">Buscar</button>
+    <ul id="lista"></ul>
+
+    <script>
+        var tarefas = [];
+
+        function adicionarTarefa() {
+            var tarefa = document.getElementById('tarefa').value;
+            tarefas.push(tarefa);
+
+            var lista = document.getElementById('lista');
+            var item = document.createElement('li');
+            item.textContent = tarefa;
+            lista.appendChild(item);
+
+            document.getElementById('tarefa').value = '';
+        }
+
+        function buscarTarefa() {
+            var busca = document.getElementById('busca').value;
+            var lista = document.getElementById('lista');
+            lista.innerHTML = '';
+
+            for (var i = 0; i < tarefas.length; i++) {
+                if (tarefas[i].includes(busca)) {
+                    var item = document.createElement('li');
+                    item.textContent = tarefas[i];
+                    lista.appendChild(item);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
