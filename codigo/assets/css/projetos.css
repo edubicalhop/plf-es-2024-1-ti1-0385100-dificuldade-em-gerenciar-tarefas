@@ -234,3 +234,14 @@ h1 {
     margin: 4px 2px;
     cursor: pointer;
 }
+
+.project-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project-container li {
+    display: inline-block;
+    margin: 10px;
+}
