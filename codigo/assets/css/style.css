@@ -34,3 +34,8 @@ nav {
     width: 6rem;
     height: 6rem;
 }
+.calendar-container {
+    border: 2px solid blue;
+    width: 40%;
+    height: 25rem;
+}
