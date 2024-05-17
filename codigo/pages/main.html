@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aurorium</title>
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <script src="../assets/js/main.js" type="module">
-        let date =  generateDate()
-        console.log(date)
-    </script>
+    <link rel="stylesheet" href="../assets/css/calendario.css">
+    <script src="../assets/js/dates.js" type="module" defer> </script>
+    
 </head>
 <body>
     <nav>
@@ -24,6 +22,33 @@
        
 
     </nav>
+    <div class="container">
+       
+        
+        <div class="calendar" id="table">
+            <div class="header">
+                <!-- Aqui é onde ficará o h1 com o mês e o ano -->
+                <div class="month" id="month-header">
+
+                </div>
+                <div class="buttons">
+                    <button class="icon" id="previous"  title="Mês anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="icon" id="next"  title="Próximo mês"><i class="fas fa-chevron-right "></i></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="task-wrapper">
+
+            
+
+        </div>
+ 
+    </div>
+
+    <script src="https://kit.fontawesome.com/812e771e48.js" crossorigin="anonymous"></script>
+
 
 
    </body>

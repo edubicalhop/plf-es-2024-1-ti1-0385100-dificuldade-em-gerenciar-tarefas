@@ -6,7 +6,14 @@
             "email": "seuemail@gmail.com",
             "tarefas": [
                 {
+                    "id": 1,
                     "titulo": "Estudar AEDS",
+                    "data": "15-06-2024",
+                    "hora": "14:00"
+                },
+                {
+                    "id": 4,
+                    "titulo": "Comprar balas",
                     "data": "15-06-2024",
                     "hora": "14:00"
                 }
@@ -17,11 +24,13 @@
                     "descricao": "Viajar para Acalpulco com minha família",
                     "tarefas": [
                         {
+                            "id": 2,
                             "titulo": "Comprar passagens",
                             "data": "03-12-2024",
                             "hora": "20:00"
                         },
                         {
+                            "id": 3,
                             "titulo": "Ir ao aeroporto",
                             "data": "20-12-2024",
                             "hora": "06:00"
