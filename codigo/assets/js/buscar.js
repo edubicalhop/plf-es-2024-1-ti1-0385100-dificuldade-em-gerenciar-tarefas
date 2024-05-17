@@ -1,27 +1,37 @@
 import data from '../../../database.json' with {type: 'json'}
-const tarefas = [];
-//Adicionar tarefas do usuário ao array de tarefas
-for(let tarefa of data.users[0].tarefas) {
-    tarefas.push(tarefa)
-}
 
-//função para buscar a tarefa do usuário
 function buscarTarefa() {
     var busca = document.getElementById('busca').value;
     var lista = document.getElementById('lista');
+    let tarefa;
+
+    for(let item of data.users[0].tarefas) {
+        if (item.titulo.toLowerCase() == busca.toLowerCase()) tarefa = item
+    }
+
+    if(data.users[0].projetos) {
+        data.users[0].projetos.map((projeto)=>{
+            
+            projeto.tarefas.map((task) => {
+                if (task.titulo.toLowerCase() == busca.toLowerCase()) tarefa = task
+            })
+        })
+    }
     lista.innerHTML = '';
 
     //cria elemento da tarefa
-    for (var i = 0; i < tarefas.length; i++) {
-        if (tarefas[i].titulo.toLowerCase() == busca.toLowerCase()) {
-            console.log(tarefas[i])
-            var item = document.createElement('li');
-            item.innerHTML = `<h5><strong>${tarefas[i].titulo}</strong> </h5><h5>${tarefas[i].data}</h5><h5>${tarefas[i].hora}</h5>`
+    
+    if (tarefa) {
+            const item = document.createElement('li');
+            item.innerHTML = `<h5><strong>${tarefa.titulo}</strong> </h5><h5>${tarefa.data}</h5><h5>${tarefa.hora}</h5>`
             lista.appendChild(item);
         } else {
-            alert("Tarefa não encontrada")
+            console.log("else runned")
+            const item = document.createElement('li');
+            item.innerHTML = `<p style="color: red">Tarefa não encontrada</p>`
+            lista.appendChild(item)
         }
-    }
+    
 }
 document.getElementById("buscar").addEventListener("click", buscarTarefa)
 
