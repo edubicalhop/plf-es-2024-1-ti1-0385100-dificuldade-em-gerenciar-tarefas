@@ -36,7 +36,13 @@ ul {
 
 ul li {
     background-color: #ddd;
+    width: 10rem;
+    height: 15rem;
     margin-bottom: 10px;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 25px;
+}
+ul li:hover {
+    transform: scale(1.05);
+    transition: ease-in-out 0.2s
 }
