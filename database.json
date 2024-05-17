@@ -1,0 +1,68 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "nome": "Você",
+            "email": "seuemail@gmail.com",
+            "tarefas": [
+                {
+                    "titulo": "Estudar AEDS",
+                    "data": "15-06-2024",
+                    "hora": "14:00"
+                }
+            ],
+            "projetos": [
+                {
+                    "titulo": "Viagem para Acapulco",
+                    "descricao": "Viajar para Acalpulco com minha família",
+                    "tarefas": [
+                        {
+                            "titulo": "Comprar passagens",
+                            "data": "03-12-2024",
+                            "hora": "20:00"
+                        },
+                        {
+                            "titulo": "Ir ao aeroporto",
+                            "data": "20-12-2024",
+                            "hora": "06:00"
+                        }
+                    ]
+                }
+            ],
+            "amigos": [
+                {
+                    "id": 2,
+                    "nome": "Matheus Panicalli Nogueira"
+
+                }
+            ],
+            "level": 1,
+            "pontos": 40
+        },
+        {
+            "id": 2,
+            "nome": "Matheus Panicalli Nogueira",
+            "email": "teteupanicalli@gmail.com",
+            "tarefas": [],
+            "projetos": [],
+            "amigos": [],
+            "level": 1,
+            "pontos": 40
+        },
+        {
+            "id": 3,
+            "nome": "Bernardo Gomes",
+            "email": "bernardo@gmail.com",
+            "tarefas": [],
+            "projetos": [],
+            "amigos": [
+                {
+                    "id": 1,
+                    "nome":"Você"
+                }
+            ],
+            "level": 1,
+            "pontos": 40
+        }
+    ]
+}
