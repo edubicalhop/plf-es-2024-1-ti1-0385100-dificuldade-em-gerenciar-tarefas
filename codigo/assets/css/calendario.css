@@ -123,14 +123,26 @@ nav {
 /* Calendar */
 
 .container {
-    flex-direction: row;
-    
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    min-height: 100vh;
+    min-height: 85vh;
     background: #ecf1f8;
+}
+#task-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    
+}
+.task {
+    background-color: white;
+    border-radius: 25px;
+    padding: 0.5rem;
+    height: 15rem;
+   
+    border: 2px solid black;
 }
 
 .calendar-assets {

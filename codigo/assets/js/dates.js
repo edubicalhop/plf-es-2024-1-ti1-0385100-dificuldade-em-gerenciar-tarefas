@@ -1,4 +1,5 @@
-const months = [
+import data from '../../../database.json' with {type: 'json'}
+const meses = [
     "Janeiro",
     "Fevereiro",
     "Março",
@@ -13,7 +14,7 @@ const months = [
     "Dezembro"
 ];
 
-const weekdays = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+const diasDaSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
 
 
 
@@ -24,7 +25,7 @@ let date = new Date();
 function getCurrentDate(element, asString) {
     if (element) {
         if (asString) {
-            return element.textContent = weekdays[date.getDay()] + ', ' + date.getDate() + " de " + months[date.getMonth()] + " de " + date.getFullYear();
+            return element.textContent = diasDaSemana[date.getDay()] + ', ' + date.getDate() + " de " + meses[date.getMonth()] + " de " + date.getFullYear();
         }
         return element.value = date.toISOString().substr(0, 10);
     }
@@ -40,23 +41,12 @@ function generateCalendar() {
     if (calendar) {
         calendar.remove();
     }
-
+    
     // Cria a tabela que será armazenada as datas
     const table = document.createElement("table");
     table.id = "calendar";
 
-    // Cria os headers referentes aos dias da semana
-    const trHeader = document.createElement('tr');
-    trHeader.className = 'weekends';
-    weekdays.map(week => {
-        const th = document.createElement('th');
-        const w = document.createTextNode(week.substring(0, 3));
-        th.appendChild(w);
-        trHeader.appendChild(th);
-    });
-
-    // Adiciona os headers na tabela
-    table.appendChild(trHeader);
+    
 
     //Pega o dia da semana do primeiro dia do mês
     const weekDay = new Date(
@@ -76,27 +66,27 @@ function generateCalendar() {
     let td = '';
     let empty = '';
     let btn = document.createElement('button');
-    let week = 0;
+    let semana = 0;
 
     // Se o dia da semana do primeiro dia do mês for maior que 0(primeiro dia da semana);
-    while (week < weekDay) {
+    while (semana < weekDay) {
         td = document.createElement("td");
         empty = document.createTextNode(' ');
         td.appendChild(empty);
         tr.appendChild(td);
-        week++;
+        semana++;
     }
 
     // Vai percorrer do 1º até o ultimo dia do mês
     for (let i = 1; i <= lastDay;) {
         // Enquanto o dia da semana for < 7, ele vai adicionar colunas na linha da semana
-        while (week < 7) {
+        while (semana < 7) {
             td = document.createElement('td');
             let text = document.createTextNode(i);
             btn = document.createElement('button');
             btn.className = "btn-day";
             btn.addEventListener('click', function () { changeDate(this) });
-            week++;
+            semana++;
 
 
 
@@ -118,25 +108,19 @@ function generateCalendar() {
         tr = document.createElement("tr");
 
         // Reseta o contador de dias da semana
-        week = 0;
+        semana = 0;
     }
     // Adiciona a tabela a div que ela deve pertencer
     const content = document.getElementById('table');
     content.appendChild(table);
     changeActive();
     changeHeader(date);
-    document.getElementById('date').textContent = date;
+   
     getCurrentDate(document.getElementById("currentDate"), true);
     getCurrentDate(document.getElementById("date"), false);
 }
 
-// Altera a data atráves do formulário
-function setDate(form) {
-    let newDate = new Date(form.date.value);
-    date = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
-    generateCalendar();
-    return false;
-}
+
 
 // Método Muda o mês e o ano do topo do calendário
 function changeHeader(dateHeader) {
@@ -145,7 +129,7 @@ function changeHeader(dateHeader) {
         month.removeChild(month.childNodes[0]);
     }
     const headerMonth = document.createElement("h1");
-    const textMonth = document.createTextNode(months[dateHeader.getMonth()].substring(0, 3) + " " + dateHeader.getFullYear());
+    const textMonth = document.createTextNode(meses[dateHeader.getMonth()].substring(0, 3) + " " + dateHeader.getFullYear());
     headerMonth.appendChild(textMonth);
     month.appendChild(headerMonth);
 }
@@ -165,16 +149,74 @@ function changeActive() {
     }
 }
 
-// Função que pega a data atual
-function resetDate() {
-    date = new Date();
-    generateCalendar();
-}
 
+
+//Procura se há tarefas na data
+function showTask(date) {
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    const formattedDate = date.toLocaleDateString('pt-BR', options).replace(/\//g, '-');
+
+    data.users[0].tarefas.map((tarefa) =>{
+        if(tarefa.data == formattedDate) {
+          const wrapper = document.getElementById("task-wrapper")
+          const task = document.createElement("div")
+
+          const tarefaJaExistente = document.getElementById(`tarefa-${tarefa.id}`)
+          if (tarefaJaExistente) tarefaJaExistente.remove()
+
+          task.id = `tarefa-${tarefa.id}`
+          task.className = "task"
+          task.innerHTML =
+            `
+                <h2>${tarefa.titulo}</h2>
+                <p style="font-size: 13px">${tarefa.data}</p>
+                <p style="font-size: 13px">${tarefa.hora}</p>
+            `
+          
+          wrapper.appendChild(task)
+        }
+    })
+    
+    data.users[0].projetos.map((projeto)=>{
+        const tarefasDoProjeto = projeto.tarefas
+        const tituloDoProjeto = projeto.titulo
+        tarefasDoProjeto.map((tarefa)=>{
+         if(tarefa.data == formattedDate) {
+            const wrapper = document.getElementById("task-wrapper")
+            const task = document.createElement("div")
+
+            const tarefaJaExistente = document.getElementById(`tarefa-${tarefa.id}`)
+            if (tarefaJaExistente) tarefaJaExistente.remove()
+
+            task.id = `tarefa-${tarefa.id}`
+            task.className = "task"
+            task.innerHTML =
+                `
+                    <h2><strong>${tarefa.titulo}</strong></h2>
+                    <p style="font-size: 13px; margin-bottom: 2rem">${tituloDoProjeto}</p>
+                    <p style="font-size: 13px">${tarefa.data}</p>
+                    <p style="font-size: 13px">${tarefa.hora}</p>
+                `
+            
+            wrapper.appendChild(task)
+        }
+        })
+    })
+
+    
+
+
+}
 // Muda a data pelo numero do botão clicado
 function changeDate(button) {
     let newDay = parseInt(button.textContent);
     date = new Date(date.getFullYear(), date.getMonth(), newDay);
+    const tasks = document.getElementsByClassName('task')
+    for (let i = 0; i < tasks.length; i++) {
+        tasks[i].remove()
+        
+    }
+    showTask(date)
     generateCalendar();
 }
 
@@ -190,14 +232,16 @@ function prevMonth() {
 }
 
 
-// function prevDay() {
-//     date = new Date(date.getFullYear(), date.getMonth(), date.getDate() - 1);
-//     generateCalendar();
-// }
 
-// function nextDay() {
-//     date = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
-//     generateCalendar();
-// }
+document.getElementById("previous").addEventListener("click", prevMonth)
+document.getElementById("next").addEventListener("click", nextMonth)
 
-document.onload = generateCalendar(date);
+
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    document.onload = generateCalendar(date);
+    
+    
+})
+
+
