@@ -1,4 +1,5 @@
-import data from '../../../database.json' with {type: 'json'}
+let data = localStorage.getItem("data")
+data = JSON.parse(data)
 const meses = [
     "Janeiro",
     "Fevereiro",
@@ -155,16 +156,17 @@ function changeActive() {
 function showTask(date) {
     const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
     const formattedDate = date.toLocaleDateString('pt-BR', options).replace(/\//g, '-');
-
+   
     data.users[0].tarefas.map((tarefa) =>{
+        console.log(tarefa)
         if(tarefa.data == formattedDate) {
+          console.log("Dentro da condição")
           const wrapper = document.getElementById("task-wrapper")
           const task = document.createElement("div")
-
-          const tarefaJaExistente = document.getElementById(`tarefa-${tarefa.id}`)
+          const tarefaJaExistente = document.getElementById(`tarefa-${tarefa.titulo}`)
           if (tarefaJaExistente) tarefaJaExistente.remove()
 
-          task.id = `tarefa-${tarefa.id}`
+          task.id = `tarefa-${tarefa.titulo.replace(" ", "-")}`
           task.className = "task"
           task.innerHTML =
             `
@@ -185,10 +187,10 @@ function showTask(date) {
             const wrapper = document.getElementById("task-wrapper")
             const task = document.createElement("div")
 
-            const tarefaJaExistente = document.getElementById(`tarefa-${tarefa.id}`)
+            const tarefaJaExistente = document.getElementById(`tarefa-${tarefa.nome}`)
             if (tarefaJaExistente) tarefaJaExistente.remove()
 
-            task.id = `tarefa-${tarefa.id}`
+            task.id = `tarefa-${tarefa.titulo.replace(" ","-")}`
             task.className = "task"
             task.innerHTML =
                 `
@@ -211,11 +213,6 @@ function showTask(date) {
 function changeDate(button) {
     let newDay = parseInt(button.textContent);
     date = new Date(date.getFullYear(), date.getMonth(), newDay);
-    const tasks = document.getElementsByClassName('task')
-    for (let i = 0; i < tasks.length; i++) {
-        tasks[i].remove()
-        
-    }
     showTask(date)
     generateCalendar();
 }

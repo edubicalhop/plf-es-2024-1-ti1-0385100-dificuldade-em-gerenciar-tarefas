@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adicionar Tarefas</title>
     <link rel="stylesheet" href="../assets/css/adicionar-tarefas.css" />
-    <script src="../assets/js/adicionar-tarefas.js" type="module">
-      let date =  generateDate()
-      console.log(date)
-    </script>
+    <script src="../assets/js/adicionar-tarefas.js" type="module" defer></script>
   </head>
   <body>
     <!--Inicio da Navbar principal-->
@@ -29,7 +26,7 @@
         <h1>Adicione Sua Tarefa!</h1>
       </div>
       <div class="campos">
-        <form type="submit">
+        <form type="submit" id="form">
           <h2>Título</h2>
           <input type="text" placeholder="Adicione um Título" id="titulo" />
           <h2>Data</h2>

@@ -1,5 +1,4 @@
 import data from '../../../database.json' with {type: 'json'}
-
 function buscarTarefa() {
     var busca = document.getElementById('busca').value;
     var lista = document.getElementById('lista');
