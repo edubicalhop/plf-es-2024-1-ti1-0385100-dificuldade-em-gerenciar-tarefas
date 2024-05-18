@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Tarefas</title>
+    <link rel="stylesheet" href="../assets/css/editar-tarefas.css" />
+    <script src="../assets/js/editar-tarefas.js" type="module">
+      let date =  generateDate()
+      console.log(date)
+    </script>
+  </head>
+  <body>
+    <!--Inicio da Navbar principal-->
+    <nav>
+      <img id="logo" src="../assets/images/logo.png" alt="" srcset="" />
+      <div class="nav-container">
+        <h1>Calendario</h1>
+        <h1>Projetos</h1>
+        <h1>Ranking</h1>
+        <h1>Tarefas</h1>
+      </div>
+      <img id="perfil" src="../assets/images/perfil.png" alt="" srcset="" />
+    </nav>
+    <!--Fim da navbar principal-->
+
+    <div class="container"> 
+      <div class="info-tarefa">
+        <h1>Edite Sua Tarefa!</h1>
+      </div>
+      <div class="campos">
+        <form type="submit">
+          <h2>Título</h2>
+          <input type="text" placeholder="Adicione um Título" id="titulo" />
+          <h2>Data</h2>
+          <input type="text" placeholder="DD-MM-YYYY" id="data"/>
+          <h2>Hora</h2>
+          <input type="text" placeholder="XX:XX" id="hora" />
+          <h2>Projeto</h2>
+          <input id="projeto" type="text" placeholder="A tarefa é parte de qual projeto? Caso não queira vinculá-la a um projeto, deixe em branco " />
+          <div class="botao">
+            <button type="submit" class="button-1" role="button">Confirmar</button>
+            <button type="reset" class="button-1" style="background-color: crimson;" role="button">Cancelar</button>
+            </div>
+        </form>
+      
+      </div>
+      
+    </div>
+  </body>
+</html>
