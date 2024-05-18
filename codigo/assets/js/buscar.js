@@ -4,7 +4,6 @@ function buscarTarefa() {
     var busca = document.getElementById('busca').value;
     var lista = document.getElementById('lista');
     let tarefa;
-
     for(let item of data.users[0].tarefas) {
         if (item.titulo.toLowerCase() == busca.toLowerCase()) tarefa = item
     }

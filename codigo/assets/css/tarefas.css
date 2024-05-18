@@ -61,15 +61,21 @@ body {
 }
 
 .navbar-container {
-    justify-content: center;
     background-color: #008DDA;
-    
     display: flex;
     width: 100%;
     height: fit-content;
     text-align: center;
     padding: 2rem;
     border-radius: 25px;
+    
+    
+}
+
+.navbar-container img {
+    width: 3rem;
+    margin-left:78rem;
+
 }
 
 .options {
