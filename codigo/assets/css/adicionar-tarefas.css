@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+
+}
+
+nav {
+    height: 6rem;
+    width: 100%;
+    padding: 1rem;
+    background-color: #008DDA;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+
+}
+
+.nav-container {
+
+    display: flex;
+    gap: 4rem;
+
+}
+
+#logo {
+    width: 6rem;
+    height: 5rem;
+}
+
+#perfil {
+    margin-left: auto;
+    width: 6rem;
+    height: 6rem;
+}
+
+.container {
+    border-radius: 25px;
+    margin-top: 2rem;
+    padding:1rem;
+    height: 80vh;
+    background-color: #90c454;
+}
+
+
+body {
+    background-color: #E8E5C1;
+}
+
+.info-tarefa {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    padding: 3px;
+    border-radius: 25px;
+    margin-top: 2rem;
+
+}
+
+.navbar-container {
+    background-color: #008DDA;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 25px;
+
+
+}
+
+.navbar-container img {
+    width: 3rem;
+    margin-left: 78rem;
+
+}
+.campos {
+    border: 2px solid black;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 25px;
+    background-color: white;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.botao {
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+}
+.button-1 {
+    background-color: green;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
