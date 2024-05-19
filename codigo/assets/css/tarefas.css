@@ -108,7 +108,7 @@ body {
     background-color: white;
     border-radius: 25px;
     margin-top: 2rem;
-    width: 10vw;
+    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: space-between;

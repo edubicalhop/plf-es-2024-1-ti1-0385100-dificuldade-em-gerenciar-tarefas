@@ -1,3 +1,14 @@
+import database from '../../../database.json' with {type: 'json'}
+let data = localStorage.getItem("data")
+if(data == null || data == undefined) {
+    localStorage.setItem("data", JSON.stringify(database))
+} else {
+    JSON.parse(data)
+}
+if(data){
+//A partir daqui começamos: 
+
+
 let data = localStorage.getItem("data")
 data = JSON.parse(data)
 
@@ -19,19 +30,17 @@ tarefas.map((tarefa) => {
     
     const task = document.createElement("div")
     task.className = 'task'
-    console.log(tarefa.titulo)
     task.innerHTML = `
-        <p>${tarefa.titulo}</p>
-        <a href="editar-tarefas.html?${tarefa.titulo}"><button id="edit-btn">📝</button></a>
-        <a href="delete.html?${tarefa.titulo}"> <button id="delete-btn">❌</button></a>
+        <p>${tarefa.titulo}, ${tarefa.data} às ${tarefa.hora}</p>
+        <a href="editar-tarefas.html?${tarefa.id}"><button id="edit-btn">📝</button></a>
+        <a href="delete.html?${tarefa.id}"> <button id="delete-btn">❌</button></a>
 
     
     `
     container.appendChild(task)
 
 })
-
-
+}
 
 
 
