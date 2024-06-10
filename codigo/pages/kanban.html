@@ -5,10 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/kanban.css">
-    <title>Kanban</title>
+    <title>CRUD Kanban</title>
 </head>
 
 <body>
+    <div id="kanban-board">
+        <div id="pending-projects">
+            <h2>Pendentes</h2>
+            <ul id="pending-list"></ul>
+        </div>
+        <div id="active-projects">
+            <h2>Ativos</h2>
+            <ul id="active-list"></ul>
+        </div>
+        <div id="finished-projects">
+            <h2>Finalizados</h2>
+            <ul id="finished-list"></ul>
+        </div>
+    </div>
+
+    <form id="add-project-form">
+        <input type="text" id="project-name" placeholder="Nome do projeto">
+        <select id="project-status">
+            <option value="pending">Pendente</option>
+            <option value="active">Ativo</option>
+            <option value="finished">Finalizado</option>
+        </select>
+        <input type="date" id="project-end-date">
+        <button type="submit">Adicionar projeto</button>
+    </form>
 
     <script src="../assets/js/kanban.js"></script>
 </body>
