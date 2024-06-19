@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+nav {
+    height: 6rem;
+    width: 100%;
+    padding: 1rem;
+    background-color: #008DDA;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    gap: 4rem;
+}
+
+#logo {
+    width: 6rem;
+    height: 5rem;
+}
+
+#perfil {
+    margin-left: auto;
+    width: 6rem;
+    height: 6rem;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: blanchedalmond;
+
+.chart-container {
+    width: 50%;
+    margin: auto;
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+}
+
+#taskList li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-item input[type="checkbox"] {
+    margin-right: 10px;
+}

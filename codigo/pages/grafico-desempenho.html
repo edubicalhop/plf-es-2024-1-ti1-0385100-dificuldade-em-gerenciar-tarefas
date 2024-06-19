@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico do usuario</title>
+    <link rel="stylesheet" href="../assets/css/grafico-desempenho.css">
+    
+</head>
+<body>
+    <!--Inicio da Navbar principal-->
+    <nav>
+        <img id="logo" src="../assets/images/logo.png" alt="Logo">
+        <div class="nav-container">
+            <h1>Grafico de Desempenho</h1>
+            <h1>Projetos</h1>
+            <h1>Ranking</h1>
+            <h1>Tarefas</h1>
+        </div>
+        <img id="perfil" src="../assets/images/perfil.png" alt="Perfil">
+    </nav>
+    <!--Fim da navbar principal-->
+
+    <h1>Gráfico de Tarefas</h1>
+    <div class="chart-container">
+        <canvas id="taskChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../assets/js/grafico-desempenho.js"></script>
+</body>
+</html>
