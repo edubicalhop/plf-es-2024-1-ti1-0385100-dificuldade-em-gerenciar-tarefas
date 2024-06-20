@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+       <!--Inicio da Navbar principal-->
+       <nav>
+
+        <img id="logo" src="../assets/images/logo.png" alt="" srcset="">
+            <div class="nav-container">
+                <h1>Calendario</h1>
+                <h1>Projetos</h1>
+                <h1>Ranking</h1>
+                <h1>Tarefas</h1>
+
+            </div>
+            <img id="perfil" src="../assets/images/perfil.png" alt="" srcset="">
+
+        </nav>
+        <!--Fim da navbar principal-->
+        <section id="conteiner">
+        <article id="conteudo">
+           <img src="../assets/images/amigos.png" alt="" width="100px">
+           <img  class="botao_x" src="../assets/images/cancelar.png" alt="" width="50px">
+
+           <div class="friend-manager">
+            <h2 class="gerenciador">Gerenciador de Amizades</h2>
+            <input type="text" id="friend-name" placeholder="Nome do Amigo">
+            <button onclick="addFriend()">Adicionar Amigo</button>
+            <input type="text" id="search-friend" oninput="searchFriend()" placeholder="Pesquisar Amigo">
+            <ul id="friends-list"></ul>
+        </div>
+
+         </article>
+        </section> 
+        <script src="../assets/js/java.js"></script>
+</body>
+</html>
